@@ -30,7 +30,6 @@ var orm = {
     },
     updateOne: function(table, objectColumnValues, condition, callback) {
       var queryString = "UPDATE " + table;
-  
       queryString += " SET ";
       queryString += objectToSql(objectColumnValues);
       queryString += " WHERE ";
@@ -48,7 +47,7 @@ var orm = {
   };
 
   function printQuestionMarks(number) {
-    var arr = [];
+    var array = [];
   
     for (var i = 0; i < number; i++) {
       array.push("?");
@@ -68,6 +67,7 @@ var orm = {
         array.push(key + "=" + value);
       }
     }
+    return array.toString();
   }  
   
   // Export the orm object for the model (burger.js)

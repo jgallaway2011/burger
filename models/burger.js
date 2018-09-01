@@ -11,12 +11,12 @@ var burger = {
         orm.insertOne("burgers", columns, values, function (results) {
             callback(results);
         });
+    },
+    updateOne: function (objectColumnValues, condition, callback) {
+        orm.updateOne("burgers", objectColumnValues, condition, function (results) {
+            callback(results);
+        });
     }
-    // updateOne: function (objColVals, condition, callback) {
-    //     orm.updateOne("burgers", objColVals, condition, function (results) {
-    //         callback(results);
-    //     });
-    // }
     //     delete: function(condition, callback) {
     //       orm.delete("burgers", condition, function(results) {
     //         callback(results);
