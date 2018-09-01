@@ -1,7 +1,9 @@
+/* Adds background */
 body {
     background-color: grey;
 }
 
+/* Removes bullets from unorderedl list */
 ul {
     list-style: none;
   }

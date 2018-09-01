@@ -1,6 +1,9 @@
+// Imports connection.js
 var connection = require("../config/connection.js");
 
+// Custom ORM
 var orm = {
+    // Selects all data from specified table when called with parameters
     selectAll: function(table, callback) {
       var queryString = "SELECT * FROM " + table + ";";
       connection.query(queryString, function(error, result) {
@@ -10,6 +13,7 @@ var orm = {
         callback(result);
       });
     },
+    // Creates a new table row of data when called with parameters
     insertOne: function(table, columns, values, callback) {
       var queryString = "INSERT INTO " + table;
       queryString += " (";
@@ -28,6 +32,7 @@ var orm = {
         callback(result);
       });
     },
+    // Updates specified fields when called with parameters
     updateOne: function(table, objectColumnValues, condition, callback) {
       var queryString = "UPDATE " + table;
       queryString += " SET ";
@@ -46,6 +51,7 @@ var orm = {
     }
   };
 
+  // Helper function for quetion marks
   function printQuestionMarks(number) {
     var array = [];
   
@@ -55,6 +61,7 @@ var orm = {
     return array.toString();
   }
   
+  // Helper function for MySQL syntax
   function objectToSql(object) {
     var array = [];
   

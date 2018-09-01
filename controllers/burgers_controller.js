@@ -1,8 +1,11 @@
+// Dependencies
 var express = require("express");
+// Import burger.js
 var burger = require("../models/burger.js");
 
 var router = express.Router();
 
+// Route with request to pull all data from MySQL to display in browser
 router.get("/", function (req, res) {
     burger.selectAll(function (data) {
         var hbsObject = {
@@ -13,6 +16,7 @@ router.get("/", function (req, res) {
     });
 });
 
+// Route with post new burger to the MySQL table and then refresh page to display in window
 router.post("/api/burgers", function (req, res) {
     burger.insertOne([
         "burger_name", "devoured"
@@ -24,6 +28,7 @@ router.post("/api/burgers", function (req, res) {
         });    
 });
 
+// Route will update the status of a particular item
 router.put("/api/burgers/:id", function (req, res) {
     var condition = "id = " + req.params.id;
 
@@ -40,16 +45,5 @@ router.put("/api/burgers/:id", function (req, res) {
     });
 });
 
-//   router.delete("/api/burgers/:id", function(req, res) {
-//     var condition = "id = " + req.params.id;
-
-//     burger.delete(condition, function(result) {
-//       if (result.affectedRows == 0) {
-//         return res.status(404).end();
-//       } else {
-//         res.status(200).end();
-//       }
-// //     });
-//   });
-
+// Export routes to use in server.js
 module.exports = router;

@@ -1,12 +1,15 @@
+// Dependencies
 var express = require("express");
 var bodyParser = require("body-parser");
 var exphbs = require("express-handlebars");
+// Import burgers_controller.js
 var routes = require("./controllers/burgers_controller.js");
 
 var PORT = process.env.PORT || 8080;
 
 var app = express();
 
+// Always look for html & CSS in this file path
 app.use(express.static(__dirname + '/public'));
 
 app.use(bodyParser.urlencoded({ extended: true }));
