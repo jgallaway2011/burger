@@ -30,7 +30,7 @@ var orm = {
       });
     },
     // An example of objColVals would be {name: panther, sleepy: true}
-    updateOne: function(table, objColVals, condition, cb) {
+    updateOne: function(table, objColVals, condition, callback) {
       var queryString = "UPDATE " + table;
   
       queryString += " SET ";
@@ -44,7 +44,7 @@ var orm = {
           throw err;
         }
   
-        cb(result);
+        callback(result);
       });
     },
   };
