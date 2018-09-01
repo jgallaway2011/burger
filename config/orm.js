@@ -12,7 +12,6 @@ var orm = {
     },
     insertOne: function(table, columns, values, callback) {
       var queryString = "INSERT INTO " + table;
-  
       queryString += " (";
       queryString += columns.toString();
       queryString += ") ";
