@@ -1,18 +1,28 @@
-<h1>Burgers to Devour!</h1>
+<img class="img-fluid rounded mx-auto d-block" src="/assets/img/burger.jpg" alt="Burger Animation">
+<h1 class="text-center">Eat-Da-Burger!</h1>
 
-<h3>Create and devour burgers!</h3>
+<div class="container.fluid">
+	<div class="row no-gutters">
+		<div class="col-sm-12 col-md-4">
+			<ul>
+				{{#each burgers}}
+				<li>
+					<p>{{this.id}}. {{this.burger_name}}</p>
+				</li>
+				{{/each}}
+			</ul>
+		</div>
+		<div class="col-sm-12 col-md-4">
+			<form>
+				<div>
+					<label for="new-burger">Burger Name:</label>
+					<input type="text" id="new-burger" name="burger_name">
+				</div>
 
-<ul>
-  {{#each burgers}}
-  	<li>
-  	   <p>ID: {{this.id}}</p>
-       <p>Burger: {{this.burger_name}}</p>
-  	</li>
-  {{/each}}
-</ul>
-
-<form action="/" method="POST" class="create-burger">
-	<textarea type="text" name="burger_name" id="new-burger"></textarea>
-
-	<button type="submit">Submit</button>
-</form>
+				<button type="submit" id="submit">Submit</button>
+			</form>
+		</div>
+		<div class="col-sm-12 col-md-4">
+		</div>
+	</div>
+</div>
